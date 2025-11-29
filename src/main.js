@@ -1,5 +1,6 @@
+
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './app.vue'
 import { Icon } from "@iconify/vue"
 import { Quasar } from 'quasar'
 import quasarLang from 'quasar/lang/pt-BR'
@@ -11,6 +12,7 @@ import 'quasar/src/css/index.sass'
 const app = createApp(App)
 app.component('Icon', Icon)
 app.use(Quasar, {
-    plugins: {}, // import Quasar plugins and add here
+  plugins: {},
+  lang: quasarLang
 })
 app.mount('#app')
