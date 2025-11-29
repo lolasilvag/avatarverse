@@ -27,42 +27,45 @@ createApp(App)
 
 
 import { getColorIterator } from "./utils/colors/color.js"
+import blob from "./utils/blob/blob.js"
+import sample from "./examples/widget00.js"
+//import { createBlob } from "./utils/blob/blob.js"
 // import sample from "./examples/widget00.js"
 
 export default function widget(key, draw) {
-  // 1) Limpa o canvas (para re-renderizações)
-  draw.clear()
+    draw.clear()
+    const W = 600, H = 600
+    draw.size(W, H)
 
-  // 2) Define um viewport seguro (ajuste se preferir)
-  const W = 600, H = 600
-  draw.size(W, H)
+    const nextColor = getColorIterator(key)
 
-  // 3) Iterador determinístico de cores com base na key
-  const nextColor = getColorIterator(key)
-
-  // 4) Desenho centralizado — retângulo 400x400, círculos 260
-  const rectSize = 400
-  const circleDia = 260
-
-  // Retângulo central
+    
+// Retângulo central
   draw
-    .rect(rectSize, rectSize)
-    .center(W / 2, H / 2)          // posiciona pelo centro
+    .rect(400, 400)
+    .center(W / 2, H / 2)
     .fill(nextColor())
 
-  // Dois círculos com leve deslocamento para compor o avatar
+  // Dois círculos sobrepostos
   draw
-    .circle(circleDia)
+    .circle(220)
     .center(W / 2 + 60, H / 2 - 20)
     .fill(nextColor())
     .opacity(0.6)
 
   draw
-    .circle(circleDia)
-    .center(W / 2 - 60, H / 2 + 20)
+    .circle(180)
+    .center(W / 2 - 80, H / 2 + 40)
     .fill(nextColor())
-    .opacity(0.6)
+    .opacity(0.5)
 
-  // 5) (Opcional) Habilitar um exemplo pronto
-  sample(key, draw)
+  // Ex.: ativar blob futuramente:
+  // const b = blob(key.next())
+  // b.fill(nextColor()).move(60, 60).size(480).addTo(draw)
+    sample(key, draw)
 }
+
+
+
+
+

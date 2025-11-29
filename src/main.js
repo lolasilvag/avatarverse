@@ -1,6 +1,6 @@
 
 import { createApp } from 'vue'
-import App from './app.vue'
+import App from './App.vue'
 import { Icon } from "@iconify/vue"
 import { Quasar } from 'quasar'
 import quasarLang from 'quasar/lang/pt-BR'
