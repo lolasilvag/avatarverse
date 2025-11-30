@@ -3,7 +3,7 @@
     <h1>Avatarverse</h1>
 
     <!-- Canvas SVG -->
-    <div ref="svgHost" class="svg-host"></div>
+    <div ref="avatarverse" class="svg-host"></div>
   </main>
 </template>
 
@@ -12,10 +12,10 @@ import { onMounted, ref } from 'vue'
 import { SVG } from '@svgdotjs/svg.js'
 import widget from './widget/widget.js'
 
-const svgHost = ref(null)
+const avatarverse = ref(null)
 
 onMounted(() => {
-  const draw = SVG().addTo(svgHost.value).size(600, 600)
+  const draw = SVG().addTo(avatarverse.value).size(600, 600)
 
   // chave determinística simples (no app real, vem do identificador)
   const key = {
